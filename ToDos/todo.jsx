@@ -3,10 +3,11 @@ import { useState} from "react";
 import {TodoForm} from './todoForm.jsx';
 import { TodoList } from "./todoList.jsx";
 import { TodoDate } from "./TodoDate.jsx";
+import { getLocalStorageTodo, setLocalStorageTodo } from "./TodoLocalStorage.jsx";
 
 export const ToDo = () => {
 
-    const [inputValue, setInputValue] = useState("");
+    const [inputValue, setInputValue] = useState(() => getLocalStorageTodo());
     const [task, setTask] = useState([]);
 
     const handleInputChange = (value) => {
@@ -27,7 +28,8 @@ export const ToDo = () => {
         setTask((prevTask) => [...prevTask, {id,content,checked}]);
     }
 
-
+    //todo add data to localstorage
+    setLocalStorageTodo(task);
 
     //todo delete functionality
     const handleDeleteTodo = (value) => {
