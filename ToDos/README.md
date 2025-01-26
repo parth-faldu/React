@@ -8,12 +8,11 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
+
 # ToDo List
 
 ToDo List is a task management application built with React, Vite, and JavaScript. It allows users to create, edit, and delete tasks, with all data stored locally using localStorage for persistence. The app provides a simple and efficient way to keep track of daily tasks with a fast and responsive interface.
 
 ## Demo
 
-https://excel-flix.netlify.app/
-
-
+https://todo-js-react.netlify.app/
