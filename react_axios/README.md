@@ -66,26 +66,3 @@ DELETE https://jsonplaceholder.typicode.com/posts/${id}
 ## Demo
 
 https://posts-react-axios.netlify.app/
-
-
-## Installation
-Install my-project with npm
-```bash
-  npm install 
-```
-
-## Start the development server
-Launch the development environment using the following command:
-```bash
-  npm bun dev
-```
-
-## Build for Production
-```bash
-  npm run build
-```
-
-## Preview Production Build
-```bash
-  npm run preview
-```
