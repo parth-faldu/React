@@ -19,7 +19,7 @@ export const Home = () => {
                     </div>
                     <div class="section-hero-image" data-aos="fade-up" data-aos-delay="600">
                         <figure>
-                            <img src="../public/movies.png" alt="coding languages using html css js" />
+                            <img src="../public/movies.webp" alt="coding languages using html css js" />
                         </figure>
                     </div>
                 </div>
