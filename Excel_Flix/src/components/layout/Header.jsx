@@ -9,8 +9,8 @@ export const Header = () => {
                         <p>Get ExcelFlix Memebership, 30-day return guarantee.</p>
                     </div>
                     <div className="sing_in_up">
-                        <NavLink to="">SIGN IN</NavLink>
-                        <NavLink to="">SIGN UP</NavLink>
+                        <a>SIGN IN</a>
+                        <a>SIGN UP</a>
                     </div>
                 </div>
             </section>  
