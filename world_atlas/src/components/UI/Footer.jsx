@@ -47,13 +47,24 @@ export const Footer = () => {
                 </li>
 
                 <li>
-                  <NavLink to="https://www.instagram.com/parth._.faldu/">
+                  <NavLink
+                    to="https://www.instagram.com/parth._.faldu/"
+                    target="_blank"
+                  >
                     Social
                   </NavLink>
                 </li>
 
                 <li>
-                  <NavLink to="">Source Code</NavLink>
+                  <NavLink
+                    to="https://github.com/parth-faldu/React/tree/main/world_atlas"
+                    target="_blank"
+                  >
+                    Source Code
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/contact">Contact</NavLink>
                 </li>
               </ul>
             </div>

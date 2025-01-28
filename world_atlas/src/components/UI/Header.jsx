@@ -1,6 +1,12 @@
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
 
 export const Header = () => {
+  const [show, setShow] = useState(false);
+  const handlButtonToggle = () => {
+    return setShow(!show);
+  };
   return (
     <>
       <header>
@@ -12,7 +18,7 @@ export const Header = () => {
               </NavLink>
             </div>
 
-            <nav>
+            <nav className={show ? "menu-mobile" : "menu-web"}>
               <ul>
                 <li>
                   <NavLink to="/">Home</NavLink>
@@ -28,6 +34,12 @@ export const Header = () => {
                 </li>
               </ul>
             </nav>
+
+            <div className="ham-menu">
+              <button onClick={handlButtonToggle}>
+                <GiHamburgerMenu />
+              </button>
+            </div>
           </div>
         </div>
       </header>

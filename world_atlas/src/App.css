@@ -74,7 +74,14 @@ button {
   -o-border-radius: 1.5rem;
   margin-top: 1.6rem;
 }
-
+.country-section button {
+  position: absolute;
+  bottom: 2rem;
+  margin-top: unset;
+}
+.section-searchFilter button {
+  position: unset;
+}
 /* Layout  */
 
 .container {
@@ -102,7 +109,7 @@ button {
 
 header {
   height: 10rem;
-  box-shadow: rgba(255, 255, 255, 0.3) 0px 10px 10px -10px;
+  /* box-shadow: rgba(255, 255, 255, 0.3) 0px 10px 10px -10px; */
   background-color: #202020;
   width: 100%;
 
@@ -152,6 +159,7 @@ nav ul {
     background-color: #0d1212;
     width: 100%;
     box-shadow: rgba(255, 252, 252, 0.25) 0px 14px 28px;
+    z-index: 1;
   }
 
   .menu-mobile ul {
@@ -242,17 +250,18 @@ nav ul {
   max-width: 55rem;
   border: 0;
   width: 100%;
+  height: 100%;
   margin-inline: auto;
 }
 
 .container-card {
   position: relative;
+  height: 100%;
   border: 2px solid transparent;
   background: linear-gradient(71deg, #080509, #1a171c, #080509);
   background-clip: padding-box;
   border-radius: 45px;
   padding: 40px;
-  aspect-ratio: 1;
 }
 
 .bg-green-box,
@@ -309,7 +318,9 @@ nav ul {
   font-size: 16px;
   max-width: 470px;
 }
-
+.countryInfo {
+  margin-bottom: 5rem;
+}
 /* footer CSS  */
 
 .footer-contact {
@@ -397,7 +408,7 @@ ul {
   margin: 6.4rem auto 9.6rem auto;
   & .grid {
     gap: 3.2rem;
-    max-width: 132rem;
+    max-width: 128rem;
     margin: auto;
   }
 
@@ -406,15 +417,21 @@ ul {
     max-width: 50rem;
     height: 16rem;
   }
+
+  & .container-card {
+    padding-bottom: 0;
+  }
 }
 
 /* indivisual card container  */
 .country-details-card {
   max-width: 100%;
   margin: 6.4rem auto;
-  box-shadow: rgba(168, 163, 184, 0.15) 0px 48px 100px 0px;
+  /* box-shadow: rgba(168, 163, 184, 0.15) 0px 48px 100px 0px; */
 
   & .container-card {
+    margin: 0 2rem;
+
     & .grid {
       align-items: center;
     }
@@ -447,7 +464,7 @@ ul {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-bottom: 3.2rem;
 
   & .container-card {
@@ -464,6 +481,8 @@ ul {
     color: rgba(255, 255, 255, 0.8);
     border: 0.05rem solid #fff;
     background: linear-gradient(71deg, #080509, #1a171c, #080509);
+    padding: 1rem;
+    border-radius: 10px;
   }
 
   & .select-section {
@@ -552,6 +571,7 @@ ul {
 @media screen and (max-width: 1320px) {
   .grid-four-cols {
     grid-template-columns: repeat(3, 1fr);
+    padding: 0 5rem;
   }
 }
 
@@ -571,32 +591,76 @@ ul {
   .grid--cols {
     grid-template-columns: 1fr;
   }
-}
-
-/* //Loader  */
-/* HTML: <div class="loader"></div> */
-.loader {
-  width: 50px;
-  padding: 8px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: #25b09b;
-  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
-  -webkit-mask: var(--_m);
-  mask: var(--_m);
-  -webkit-mask-composite: source-out;
-  mask-composite: subtract;
-  animation: l3 1s infinite linear;
-}
-@keyframes l3 {
-  to {
-    transform: rotate(1turn);
+  header h1 {
+    font-size: 2rem;
+  }
+  .section-searchFilter {
+    flex-direction: column;
+    gap: 2rem;
   }
 }
 
+/***** loader Section *****/
 .loader-section {
-  height: 50vh;
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.loader {
+  width: 48px;
+  height: 48px;
+  display: block;
+  margin: 20px auto;
+  box-sizing: border-box;
+  position: relative;
+}
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  border-radius: 50% 50% 0;
+  border: 15px solid #fff;
+  transform: rotate(45deg) translate(0, 0);
+  box-sizing: border-box;
+  animation: animMarker 0.4s ease-in-out infinite alternate;
+}
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 150%;
+  width: 24px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  animation: animShadow 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes animMarker {
+  0% {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  100% {
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+}
+
+@keyframes animShadow {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/***** End loader Section *****/
