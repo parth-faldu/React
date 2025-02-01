@@ -1,14 +1,31 @@
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { fetchPosts } from "../src/api/api";
+import {
+  keepPreviousData,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
+import { deletePost, fetchPosts } from "../src/api/api";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 export const FetchRQ = () => {
   const [pageNumber, setPageNumber] = useState(0);
+
+  const queryClient = useQueryClient();
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ["post", pageNumber],
+    queryKey: ["posts", pageNumber],
     queryFn: () => fetchPosts(pageNumber),
     placeholderData: keepPreviousData,
+  });
+
+  //!mutation function to delete the post
+  const deleteMutation = useMutation({
+    mutationFn: (id) => deletePost(id),
+    onSuccess: (data, id) => {
+      queryClient.setQueryData(["posts", pageNumber], (curElem) => {
+        return curElem?.filter((post) => post.id !== id);
+      });
+    },
   });
 
   if (isPending) return <p>Loading ... </p>;
@@ -25,6 +42,7 @@ export const FetchRQ = () => {
               <p>{title}</p>
               <p>{body}</p>
             </NavLink>
+            <button onClick={() => deleteMutation.mutate(id)}>Delete</button>
           </li>
         ))}
       </ul>
