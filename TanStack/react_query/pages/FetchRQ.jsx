@@ -30,15 +30,12 @@ export const FetchRQ = () => {
 
       <div className="pagination-section container">
         <button
-          onClick={() =>
-            pageNumber <= 0
-              ? setPageNumber(0)
-              : setPageNumber((prev) => prev - 3)
-          }
+          onClick={() => setPageNumber((prev) => prev - 3)}
+          disabled={pageNumber == 0 ? true : false}
         >
           Prev
         </button>
-        <h2>{pageNumber / 3}</h2>
+        <h2>{pageNumber / 3 + 1}</h2>
         <button onClick={() => setPageNumber((prev) => prev + 3)}>Next</button>
       </div>
     </div>
