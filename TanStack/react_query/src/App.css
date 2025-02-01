@@ -29,7 +29,9 @@ h1 {
   font-family: "syne";
   letter-spacing: 0.1rem;
 }
-
+.pagination-section h2 {
+  color: white;
+}
 button {
   padding: 0rem 1.2rem;
   border-radius: 0.3rem;
