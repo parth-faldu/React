@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { fetchPosts } from "../src/api/api";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
@@ -8,6 +8,7 @@ export const FetchRQ = () => {
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["post", pageNumber],
     queryFn: () => fetchPosts(pageNumber),
+    placeholderData: keepPreviousData,
   });
 
   if (isPending) return <p>Loading ... </p>;
