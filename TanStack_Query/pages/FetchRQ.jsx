@@ -59,18 +59,19 @@ export const FetchRQ = () => {
             <button onClick={() => updateMutation.mutate(id)}>Update</button>
           </li>
         ))}
+        <div className="pagination-section container">
+          <button
+            onClick={() => setPageNumber((prev) => prev - 3)}
+            disabled={pageNumber == 0 ? true : false}
+          >
+            Prev
+          </button>
+          <h2>{pageNumber / 3 + 1}</h2>
+          <button onClick={() => setPageNumber((prev) => prev + 3)}>
+            Next
+          </button>
+        </div>
       </ul>
-
-      <div className="pagination-section container">
-        <button
-          onClick={() => setPageNumber((prev) => prev - 3)}
-          disabled={pageNumber == 0 ? true : false}
-        >
-          Prev
-        </button>
-        <h2>{pageNumber / 3 + 1}</h2>
-        <button onClick={() => setPageNumber((prev) => prev + 3)}>Next</button>
-      </div>
     </div>
   );
 };

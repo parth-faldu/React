@@ -161,6 +161,33 @@ footer {
   .section-post ol {
     grid-template-columns: repeat(1, 1fr);
   }
+  header {
+    text-align: center;
+    height: unset;
+    margin-top: 5rem;
+
+    & div {
+      flex-direction: column;
+
+      & ul {
+        margin: 5rem 0;
+        flex-direction: column;
+        text-align: center;
+        padding-left: 0;
+      }
+    }
+  }
+  button {
+    padding: 0rem 0.7rem;
+  }
+  .section-accordion {
+    padding-left: 0;
+    row-gap: 5rem;
+
+    & .pagination-section {
+      gap: 2rem;
+    }
+  }
 }
 
 .pagination-section {
