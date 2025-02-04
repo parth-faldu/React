@@ -5,7 +5,7 @@ import { addTask, deleteTask, fetchTasks } from "../Store";
 
 export const Todo = () => {
   const [task, setTask] = useState("");
-  const tasks = useSelector((state) => state.task);
+  const tasks = useSelector((state) => state.taskReducer.task);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();

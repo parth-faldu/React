@@ -10,32 +10,32 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 60px;
+  padding: 20px;
 }
 
 .todo-app {
   background-color: #1e1e1e;
-  padding: 60px 80px;
+  padding: 20px 30px;
   border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 700px;
+  max-width: 400px;
 }
 
 .todo-app h1 {
   display: flex;
   align-items: center;
-  font-size: 3rem;
-  margin-bottom: 40px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
 }
 
 .todo-app h1 i {
-  margin-right: 20px;
+  margin-right: 8px;
   color: #ff9800;
 }
 
 .row {
-  margin-bottom: 40px;
+  margin-bottom: 15px;
 }
 
 .todo-app form {
@@ -44,21 +44,21 @@ body {
 
 .todo-app input[type="text"] {
   flex: 1;
-  padding: 20px;
+  padding: 8px;
   border: none;
   border-radius: 6px 0 0 6px;
-  font-size: 1.5rem;
+  font-size: 0.9rem;
   background-color: #333;
   color: #e0e0e0;
 }
 
 .todo-app button {
-  padding: 20px 40px;
+  padding: 8px 16px;
   border: none;
   border-radius: 0 6px 6px 0;
   background-color: #ff9800;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -74,14 +74,14 @@ body {
 }
 
 #list-container li {
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 8px;
+  margin-bottom: 8px;
   background-color: #2c2c2c;
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.5rem;
+  font-size: 0.9rem;
 }
 
 #list-container li.empty {
@@ -89,8 +89,9 @@ body {
   font-style: italic;
   color: #bbb;
 }
+
 .icon-style {
-  font-size: 2rem;
+  font-size: 1rem;
   color: #e0e0e0;
   cursor: pointer;
   transition: color 0.3s ease;

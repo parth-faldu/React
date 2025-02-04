@@ -1,6 +1,7 @@
-import { composeWithDevTools } from "@redux-devtools/extension";
-import { applyMiddleware, createStore } from "redux";
-import { thunk } from "redux-thunk";
+// import { composeWithDevTools } from "@redux-devtools/extension";
+// import { applyMiddleware, createStore } from "redux";
+// import { thunk } from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
 
 const ADD_TASk = "task/add";
 const DELETE_TASK = "task/delete";
@@ -39,10 +40,18 @@ const taskReducer = (state = initialState, action) => {
   }
 };
 
-export const store = createStore(
-  taskReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+//! (Old Style) Step 2 : Create the redux store using the reducer
+// export const store = createStore(
+//   taskReducer,
+//   composeWithDevTools(applyMiddleware(thunk))
+// );
+
+//! New Style
+export const store = configureStore({
+  reducer: {
+    taskReducer,
+  },
+});
 
 export const addTask = (data) => {
   return { type: ADD_TASk, payload: data };
