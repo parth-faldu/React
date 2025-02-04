@@ -1,7 +1,10 @@
-import { createStore } from "redux";
+import { composeWithDevTools } from "@redux-devtools/extension";
+import { applyMiddleware, createStore } from "redux";
+import { thunk } from "redux-thunk";
 
 const ADD_TASk = "task/add";
 const DELETE_TASK = "task/delete";
+const FETCH_TASK = "task/fetch";
 
 const initialState = {
   task: [],
@@ -19,9 +22,16 @@ const taskReducer = (state = initialState, action) => {
       const updatedTask = state.task.filter((curTask, index) => {
         return index != action.payload;
       });
+
       return {
         ...state,
         task: updatedTask,
+      };
+
+    case FETCH_TASK:
+      return {
+        ...state,
+        task: [...state.task, ...action.payload],
       };
 
     default:
@@ -29,7 +39,10 @@ const taskReducer = (state = initialState, action) => {
   }
 };
 
-export const store = createStore(taskReducer);
+export const store = createStore(
+  taskReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 export const addTask = (data) => {
   return { type: ADD_TASk, payload: data };
@@ -37,4 +50,21 @@ export const addTask = (data) => {
 
 export const deleteTask = (id) => {
   return { type: DELETE_TASK, payload: id };
+};
+
+export const fetchTasks = () => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(
+        `https://jsonplaceholder.typicode.com/todos?_limit=3`
+      );
+      const task = await res.json();
+      dispatch({
+        type: FETCH_TASK,
+        payload: task.map((curTask) => curTask.title),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 };
